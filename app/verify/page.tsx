@@ -71,7 +71,7 @@ function VerifyPageContent() {
         <div className="flex justify-center mb-8">
           <Image 
             src="/NRCVerify.png" 
-            alt="NRC Verify" 
+            alt="Peachy Advance" 
             width={320} 
             height={107}
             className="h-24 w-auto"
@@ -126,7 +126,7 @@ function VerifyPageContent() {
         {/* Footer */}
         <div className="text-center pt-6 border-t border-gray-200">
           <p className="text-xs text-gray-500">
-            Secured by NRC Verify
+            Secured by Peachy Advance
           </p>
         </div>
       </div>

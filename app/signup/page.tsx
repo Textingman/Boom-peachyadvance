@@ -47,7 +47,7 @@ export default function SignupPage() {
               <Link href="/" className="flex-shrink-0">
                 <Image 
                   src="/NRCVerify.png" 
-                  alt="NRC Verify" 
+                  alt="Peachy Advance" 
                   width={500} 
                   height={167}
                   className="h-24 w-auto"
@@ -82,7 +82,7 @@ export default function SignupPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-              Get Started with NRC Verify
+              Get Started with Peachy Advance
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Fill out the form below and we'll get back to you within 24 hours to set up your account.
@@ -115,7 +115,7 @@ export default function SignupPage() {
           ) : (
             <>
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Sign Up for NRC Verify</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Sign Up for Peachy Advance</h2>
                 <p className="text-gray-600">
                   Complete the form below to start verifying your customers with confidence.
                 </p>
@@ -221,7 +221,7 @@ export default function SignupPage() {
                     value={formData.message}
                     onChange={handleChange}
                     className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
-                    placeholder="How do you plan to use NRC Verify?"
+                    placeholder="How do you plan to use Peachy Advance?"
                   />
                 </div>
 
@@ -236,7 +236,7 @@ export default function SignupPage() {
                         className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
                       />
                       <label htmlFor="sms-consent" className="ml-3 text-sm leading-relaxed">
-                        By checking this box, you provide consent to receive automated SMS messages from NRC Verify. Message frequency varies and message and data rates may apply. You may opt-out by replying 'STOP'. Reply 'HELP' for help or email support@nrcverify.com. Consent is not required as a condition of purchasing any products or services.
+                        By checking this box, you provide consent to receive automated SMS messages from Peachy Advance. Message frequency varies and message and data rates may apply. You may opt-out by replying 'STOP'. Reply 'HELP' for help or email support@peachyadvance.com. Consent is not required as a condition of purchasing any products or services.
                       </label>
                     </div>
                   </div>
@@ -250,7 +250,7 @@ export default function SignupPage() {
                         className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
                       />
                       <label htmlFor="call-consent" className="ml-3 text-sm leading-relaxed">
-                        By checking this box, you provide consent to receive automated customer care calls from NRC Verify. Call frequency varies and standard phone rates may apply. You may opt-out at any time by contacting support@nrcverify.com. Consent is not required as a condition of purchasing any products or services.
+                        By checking this box, you provide consent to receive automated customer care calls from Peachy Advance. Call frequency varies and standard phone rates may apply. You may opt-out at any time by contacting support@peachyadvance.com. Consent is not required as a condition of purchasing any products or services.
                       </label>
                     </div>
                   </div>
@@ -266,7 +266,7 @@ export default function SignupPage() {
                         className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
                       />
                       <label htmlFor="account-notifications" className="ml-3 text-sm leading-relaxed text-gray-700">
-                        By checking this box, you consent to receive account notifications, service updates, and important information about your NRC Verify account via email and SMS. You may opt-out at any time by contacting support@nrcverify.com or by following the unsubscribe instructions in our communications. Consent is not required as a condition of purchasing any products or services.
+                        By checking this box, you consent to receive account notifications, service updates, and important information about your Peachy Advance account via email and SMS. You may opt-out at any time by contacting support@peachyadvance.com or by following the unsubscribe instructions in our communications. Consent is not required as a condition of purchasing any products or services.
                       </label>
                     </div>
                   </div>
@@ -331,7 +331,7 @@ export default function SignupPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">NRC Verify</h3>
+              <h3 className="text-xl font-bold mb-4">Peachy Advance</h3>
               <p className="text-gray-400">
                 Carrier-compliant SMS verification for businesses.
               </p>
@@ -369,12 +369,12 @@ export default function SignupPage() {
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <p className="text-gray-400">
-                support@nrcverify.com
+                support@peachyadvance.com
               </p>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 NRC Verify. All rights reserved.</p>
+            <p>&copy; 2025 Peachy Advance. All rights reserved.</p>
           </div>
         </div>
       </footer>
