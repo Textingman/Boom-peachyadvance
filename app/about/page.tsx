@@ -22,19 +22,19 @@ export default function AboutPage() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Home
                 </Link>
-                <Link href="/about" className="text-gray-900 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/about" className="text-gray-900 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </Link>
-                <Link href="/privacy" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/privacy" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Privacy
                 </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/terms" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Terms
                 </Link>
-                <Link href="/signup" className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] px-4 py-2 rounded-md text-sm font-medium">
+                <Link href="/signup" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
                   Get Started
                 </Link>
               </div>
@@ -44,7 +44,7 @@ export default function AboutPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-green-50 to-white py-20">
+      <section className="bg-gradient-to-b from-orange-50 to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-extrabold text-gray-900 mb-6">
@@ -76,7 +76,7 @@ export default function AboutPage() {
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
-                  <Target className="w-8 h-8 text-[#2563eb]" />
+                  <Target className="w-8 h-8 text-[#FB923C]" />
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Focused on Quality</h3>
@@ -87,7 +87,7 @@ export default function AboutPage() {
               </div>
               <div className="flex items-start">
                 <div className="flex-shrink-0">
-                  <Shield className="w-8 h-8 text-[#2563eb]" />
+                  <Shield className="w-8 h-8 text-[#FB923C]" />
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Security First</h3>
@@ -98,7 +98,7 @@ export default function AboutPage() {
               </div>
               <div className="flex items-start">
                 <div className="flex-shrink-0">
-                  <Zap className="w-8 h-8 text-[#2563eb]" />
+                  <Zap className="w-8 h-8 text-[#FB923C]" />
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Lightning Fast</h3>
@@ -124,8 +124,8 @@ export default function AboutPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="w-8 h-8 text-[#2563eb]" />
+            <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-8 h-8 text-[#FB923C]" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Reliable Service</h3>
             <p className="text-gray-600">
@@ -134,8 +134,8 @@ export default function AboutPage() {
           </div>
 
           <div className="text-center">
-            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="w-8 h-8 text-[#2563eb]" />
+            <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Users className="w-8 h-8 text-[#FB923C]" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Multi-Brand Support</h3>
             <p className="text-gray-600">
@@ -144,8 +144,8 @@ export default function AboutPage() {
           </div>
 
           <div className="text-center">
-            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Zap className="w-8 h-8 text-[#2563eb]" />
+            <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Zap className="w-8 h-8 text-[#FB923C]" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">High Performance</h3>
             <p className="text-gray-600">
@@ -154,8 +154,8 @@ export default function AboutPage() {
           </div>
 
           <div className="text-center">
-            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Target className="w-8 h-8 text-[#2563eb]" />
+            <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Target className="w-8 h-8 text-[#FB923C]" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Easy Integration</h3>
             <p className="text-gray-600">
@@ -166,7 +166,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-[#2563eb] py-20">
+      <section className="bg-[#FB923C] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Get Started?
@@ -176,7 +176,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/signup"
-            className="inline-block px-8 py-4 bg-white text-[#2563eb] text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+            className="inline-block px-8 py-4 bg-white text-[#FB923C] text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
           >
             Get Started Today
           </Link>

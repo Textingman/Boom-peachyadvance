@@ -21,19 +21,19 @@ export default function PrivacyPage() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Home
                 </Link>
-                <Link href="/about" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/about" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </Link>
-                <Link href="/privacy" className="text-gray-900 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/privacy" className="text-gray-900 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Privacy
                 </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/terms" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Terms
                 </Link>
-                <Link href="/signup" className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] px-4 py-2 rounded-md text-sm font-medium">
+                <Link href="/signup" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
                   Get Started
                 </Link>
               </div>
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
       </nav>
 
       {/* Header */}
-      <section className="bg-gradient-to-b from-green-50 to-white py-12">
+      <section className="bg-gradient-to-b from-orange-50 to-white py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Privacy Policy</h1>
           <p className="text-lg text-gray-600">
@@ -156,7 +156,7 @@ export default function PrivacyPage() {
             <li><strong>Opt-out:</strong> Opt out of marketing communications</li>
           </ul>
           <p className="text-gray-600 mb-6">
-            To exercise these rights, please contact us at <a href="mailto:privacy@nrcverify.com" className="text-[#2563eb] hover:text-[#1d4ed8]">privacy@nrcverify.com</a>.
+            To exercise these rights, please contact us at <a href="mailto:privacy@nrcverify.com" className="text-[#FB923C] hover:text-[#F97316]">privacy@nrcverify.com</a>.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">8. Cookies and Tracking Technologies</h2>
@@ -194,9 +194,9 @@ export default function PrivacyPage() {
             If you have any questions about this Privacy Policy or our privacy practices, please contact us:
           </p>
           <div className="bg-gray-50 rounded-lg p-6 mb-8">
-            <p className="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:privacy@nrcverify.com" className="text-[#2563eb] hover:text-[#1d4ed8]">privacy@nrcverify.com</a></p>
-            <p className="text-gray-600 mb-2"><strong>Support:</strong> <a href="mailto:support@nrcverify.com" className="text-[#2563eb] hover:text-[#1d4ed8]">support@nrcverify.com</a></p>
-            <p className="text-gray-600"><strong>Website:</strong> <a href="/" className="text-[#2563eb] hover:text-[#1d4ed8]">https://nrcverify.com</a></p>
+            <p className="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:privacy@nrcverify.com" className="text-[#FB923C] hover:text-[#F97316]">privacy@nrcverify.com</a></p>
+            <p className="text-gray-600 mb-2"><strong>Support:</strong> <a href="mailto:support@nrcverify.com" className="text-[#FB923C] hover:text-[#F97316]">support@nrcverify.com</a></p>
+            <p className="text-gray-600"><strong>Website:</strong> <a href="/" className="text-[#FB923C] hover:text-[#F97316]">https://nrcverify.com</a></p>
           </div>
 
         </div>

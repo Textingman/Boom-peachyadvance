@@ -56,19 +56,19 @@ export default function SignupPage() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Home
                 </Link>
-                <Link href="/about" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/about" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </Link>
-                <Link href="/privacy" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/privacy" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Privacy
                 </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/terms" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Terms
                 </Link>
-                <Link href="/signup" className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] px-4 py-2 rounded-md text-sm font-medium">
+                <Link href="/signup" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
                   Get Started
                 </Link>
               </div>
@@ -78,7 +78,7 @@ export default function SignupPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-green-50 to-white py-12">
+      <section className="bg-gradient-to-b from-orange-50 to-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
@@ -107,7 +107,7 @@ export default function SignupPage() {
               </p>
               <Link
                 href="/"
-                className="inline-block px-6 py-3 bg-[#2563eb] text-white font-semibold rounded-lg hover:bg-[#1d4ed8] transition-colors"
+                className="inline-block px-6 py-3 bg-[#FB923C] text-white font-semibold rounded-lg hover:bg-[#F97316] transition-colors"
               >
                 Return to Home
               </Link>
@@ -138,7 +138,7 @@ export default function SignupPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
                       placeholder="John Doe"
                     />
                   </div>
@@ -160,7 +160,7 @@ export default function SignupPage() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
                       placeholder="john@company.com"
                     />
                   </div>
@@ -182,7 +182,7 @@ export default function SignupPage() {
                       required
                       value={formData.company}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
                       placeholder="Acme Inc."
                     />
                   </div>
@@ -203,7 +203,7 @@ export default function SignupPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -220,7 +220,7 @@ export default function SignupPage() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563eb] focus:border-transparent"
+                    className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
                     placeholder="How do you plan to use NRC Verify?"
                   />
                 </div>
@@ -233,7 +233,7 @@ export default function SignupPage() {
                       <input
                         type="checkbox"
                         id="sms-consent"
-                        className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
+                        className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
                       />
                       <label htmlFor="sms-consent" className="ml-3 text-sm leading-relaxed">
                         By checking this box, you provide consent to receive automated SMS messages from NRC Verify. Message frequency varies and message and data rates may apply. You may opt-out by replying 'STOP'. Reply 'HELP' for help or email support@nrcverify.com. Consent is not required as a condition of purchasing any products or services.
@@ -247,7 +247,7 @@ export default function SignupPage() {
                       <input
                         type="checkbox"
                         id="call-consent"
-                        className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
+                        className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
                       />
                       <label htmlFor="call-consent" className="ml-3 text-sm leading-relaxed">
                         By checking this box, you provide consent to receive automated customer care calls from NRC Verify. Call frequency varies and standard phone rates may apply. You may opt-out at any time by contacting support@nrcverify.com. Consent is not required as a condition of purchasing any products or services.
@@ -263,7 +263,7 @@ export default function SignupPage() {
                         id="account-notifications"
                         checked={accountNotifications}
                         onChange={(e) => setAccountNotifications(e.target.checked)}
-                        className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
+                        className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
                       />
                       <label htmlFor="account-notifications" className="ml-3 text-sm leading-relaxed text-gray-700">
                         By checking this box, you consent to receive account notifications, service updates, and important information about your NRC Verify account via email and SMS. You may opt-out at any time by contacting support@nrcverify.com or by following the unsubscribe instructions in our communications. Consent is not required as a condition of purchasing any products or services.
@@ -277,15 +277,15 @@ export default function SignupPage() {
                       <input
                         type="checkbox"
                         id="terms-consent"
-                        className="mt-1 h-4 w-4 text-[#2563eb] focus:ring-[#2563eb] border-gray-300 rounded flex-shrink-0"
+                        className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
                       />
                       <label htmlFor="terms-consent" className="ml-3 text-sm leading-relaxed text-gray-700">
                         I agree with the{' '}
-                        <Link href="/terms" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium underline">
+                        <Link href="/terms" className="text-[#FB923C] hover:text-[#F97316] font-medium underline">
                           Terms & Conditions
                         </Link>{' '}
                         and{' '}
-                        <Link href="/privacy" className="text-[#2563eb] hover:text-[#1d4ed8] font-medium underline">
+                        <Link href="/privacy" className="text-[#FB923C] hover:text-[#F97316] font-medium underline">
                           Privacy Policy
                         </Link>
                         .
@@ -301,7 +301,7 @@ export default function SignupPage() {
                   className={`w-full py-4 px-6 rounded-lg text-lg font-semibold transition-all ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-[#2563eb] hover:bg-[#1d4ed8] text-white shadow-lg hover:shadow-xl'
+                      : 'bg-[#FB923C] hover:bg-[#F97316] text-white shadow-lg hover:shadow-xl'
                   }`}
                 >
                   {isSubmitting ? (

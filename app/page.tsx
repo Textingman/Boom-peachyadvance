@@ -4,7 +4,7 @@ import { CheckCircle, Zap, Users } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
       {/* Navigation */}
       <nav className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,19 +23,19 @@ export default function HomePage() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-900 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/" className="text-gray-900 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Home
                 </Link>
-                <Link href="/about" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/about" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </Link>
-                <Link href="/privacy" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/privacy" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Privacy
                 </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#2563eb] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/terms" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Terms
                 </Link>
-                <Link href="/signup" className="bg-[#2563eb] text-white hover:bg-[#1d4ed8] px-4 py-2 rounded-md text-sm font-medium">
+                <Link href="/signup" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
                   Get Started
                 </Link>
               </div>
@@ -49,7 +49,7 @@ export default function HomePage() {
         <div className="text-center">
           <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl md:text-7xl">
             Verify Your Customers
-            <span className="block text-[#2563eb]">With Confidence</span>
+            <span className="block text-[#FB923C]">With Confidence</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-600">
             Send verification and notifications easily. Ensure your customers are who they say they are with our SMS verification service.
@@ -57,13 +57,13 @@ export default function HomePage() {
           <div className="mt-10 flex justify-center gap-4">
             <Link
               href="/signup"
-              className="px-8 py-4 bg-[#2563eb] text-white text-lg font-semibold rounded-lg hover:bg-[#1d4ed8] transition-colors shadow-lg"
+              className="px-8 py-4 bg-[#FB923C] text-white text-lg font-semibold rounded-lg hover:bg-[#F97316] transition-colors shadow-lg"
             >
               Get Started Free
             </Link>
             <Link
               href="/about"
-              className="px-8 py-4 bg-white text-[#2563eb] text-lg font-semibold rounded-lg hover:bg-gray-50 transition-colors border-2 border-[#2563eb]"
+              className="px-8 py-4 bg-white text-[#FB923C] text-lg font-semibold rounded-lg hover:bg-gray-50 transition-colors border-2 border-[#FB923C]"
             >
               Learn More
             </Link>
@@ -84,7 +84,7 @@ export default function HomePage() {
           {/* Feature 1 */}
           <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
             <div className="flex justify-center mb-4">
-              <CheckCircle className="w-12 h-12 text-[#2563eb]" />
+              <CheckCircle className="w-12 h-12 text-[#FB923C]" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
               Easy Verification
@@ -97,7 +97,7 @@ export default function HomePage() {
           {/* Feature 2 */}
           <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
             <div className="flex justify-center mb-4">
-              <Zap className="w-12 h-12 text-[#2563eb]" />
+              <Zap className="w-12 h-12 text-[#FB923C]" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
               Lightning Fast
@@ -110,7 +110,7 @@ export default function HomePage() {
           {/* Feature 3 */}
           <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
             <div className="flex justify-center mb-4">
-              <Users className="w-12 h-12 text-[#2563eb]" />
+              <Users className="w-12 h-12 text-[#FB923C]" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
               Multi-Brand Support
@@ -176,7 +176,7 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-[#2563eb] rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-[#FB923C] rounded-2xl shadow-2xl overflow-hidden">
           <div className="px-6 py-16 sm:px-12 sm:py-20 text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Get Started?
@@ -186,7 +186,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/signup"
-              className="inline-block px-8 py-4 bg-white text-[#2563eb] text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+              className="inline-block px-8 py-4 bg-white text-[#FB923C] text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
             >
               Get Started Today
             </Link>
