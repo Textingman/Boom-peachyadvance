@@ -46,7 +46,7 @@ export default function SignupPage() {
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0">
                 <Image 
-                  src="/NRCVerify.png" 
+                  src="/peachy-logo.png"
                   alt="Peachy Advance" 
                   width={500} 
                   height={167}

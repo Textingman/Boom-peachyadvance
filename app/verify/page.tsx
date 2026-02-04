@@ -70,7 +70,7 @@ function VerifyPageContent() {
         {/* Logo/Brand */}
         <div className="flex justify-center mb-8">
           <Image 
-            src="/NRCVerify.png" 
+            src="/peachy-logo.png"
             alt="Peachy Advance" 
             width={320} 
             height={107}

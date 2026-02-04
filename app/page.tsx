@@ -4,7 +4,7 @@ import { CheckCircle, Zap, Users } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#FEE5D9] to-white">
       {/* Navigation */}
       <nav className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,7 +12,7 @@ export default function HomePage() {
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0">
                 <Image 
-                  src="/NRCVerify.png" 
+                  src="/peachy-logo.png"
                   alt="Peachy Advance" 
                   width={500} 
                   height={167}
@@ -23,19 +23,19 @@ export default function HomePage() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-gray-900 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/" className="text-[#4A4A4A] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
                   Home
                 </Link>
-                <Link href="/about" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/about" className="text-[#757575] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </Link>
-                <Link href="/privacy" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/privacy" className="text-[#757575] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
                   Privacy
                 </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/terms" className="text-[#757575] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
                   Terms
                 </Link>
-                <Link href="/signup" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
+                <Link href="/signup" className="bg-[#FFA97E] text-white hover:bg-[#FFC6AE] px-4 py-2 rounded-md text-sm font-medium">
                   Get Started
                 </Link>
               </div>
@@ -47,23 +47,23 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
-          <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl md:text-7xl">
+          <h1 className="text-5xl font-extrabold text-[#4A4A4A] sm:text-6xl md:text-7xl">
             Verify Your Customers
-            <span className="block text-[#FB923C]">With Confidence</span>
+            <span className="block text-[#FFA97E]">With Confidence</span>
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-600">
+          <p className="mt-6 max-w-2xl mx-auto text-xl text-[#757575]">
             Send verification and notifications easily. Ensure your customers are who they say they are with our SMS verification service.
           </p>
           <div className="mt-10 flex justify-center gap-4">
             <Link
               href="/signup"
-              className="px-8 py-4 bg-[#FB923C] text-white text-lg font-semibold rounded-lg hover:bg-[#F97316] transition-colors shadow-lg"
+              className="px-8 py-4 bg-[#FFA97E] text-white text-lg font-semibold rounded-lg hover:bg-[#FFC6AE] transition-colors shadow-lg"
             >
               Get Started Free
             </Link>
             <Link
               href="/about"
-              className="px-8 py-4 bg-white text-[#FB923C] text-lg font-semibold rounded-lg hover:bg-gray-50 transition-colors border-2 border-[#FB923C]"
+              className="px-8 py-4 bg-white text-[#FFA97E] text-lg font-semibold rounded-lg hover:bg-[#FEE5D9] transition-colors border-2 border-[#FFA97E]"
             >
               Learn More
             </Link>
@@ -74,8 +74,8 @@ export default function HomePage() {
       {/* Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900">Why Choose Peachy Advance?</h2>
-          <p className="mt-4 text-xl text-gray-600">
+          <h2 className="text-4xl font-bold text-[#4A4A4A]">Why Choose Peachy Advance?</h2>
+          <p className="mt-4 text-xl text-[#757575]">
             Trusted by businesses to verify customer identity and improve engagement
           </p>
         </div>
@@ -84,12 +84,12 @@ export default function HomePage() {
           {/* Feature 1 */}
           <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
             <div className="flex justify-center mb-4">
-              <CheckCircle className="w-12 h-12 text-[#FB923C]" />
+              <CheckCircle className="w-12 h-12 text-[#FFA97E]" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
+            <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
               Easy Verification
             </h3>
-            <p className="text-gray-600 text-center">
+            <p className="text-[#757575] text-center">
               Simple, user-friendly verification flow that customers can complete in seconds.
             </p>
           </div>
@@ -97,12 +97,12 @@ export default function HomePage() {
           {/* Feature 2 */}
           <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
             <div className="flex justify-center mb-4">
-              <Zap className="w-12 h-12 text-[#FB923C]" />
+              <Zap className="w-12 h-12 text-[#FFA97E]" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
+            <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
               Lightning Fast
             </h3>
-            <p className="text-gray-600 text-center">
+            <p className="text-[#757575] text-center">
               Optimized for speed with page loads under 2 seconds, even on mobile networks.
             </p>
           </div>
@@ -110,12 +110,12 @@ export default function HomePage() {
           {/* Feature 3 */}
           <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
             <div className="flex justify-center mb-4">
-              <Users className="w-12 h-12 text-[#FB923C]" />
+              <Users className="w-12 h-12 text-[#FFA97E]" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">
+            <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
               Multi-Brand Support
             </h3>
-            <p className="text-gray-600 text-center">
+            <p className="text-[#757575] text-center">
               Support multiple brands with customizable styling and white-label options.
             </p>
           </div>
@@ -126,8 +126,8 @@ export default function HomePage() {
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900">Our Solutions</h2>
-            <p className="mt-4 text-xl text-gray-600">
+            <h2 className="text-4xl font-bold text-[#4A4A4A]">Our Solutions</h2>
+            <p className="mt-4 text-xl text-[#757575]">
               Streamline your verification and engagement process
             </p>
           </div>
@@ -137,24 +137,24 @@ export default function HomePage() {
             <div className="space-y-12">
               {/* Solution 1 */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Identity Verification</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Identity Verification</h3>
+                <p className="text-lg text-[#757575] leading-relaxed">
                   Begin by dispatching a straightforward verification request to your users, aiming to confirm their identity efficiently.
                 </p>
               </div>
 
               {/* Solution 2 */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Document Link</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Document Link</h3>
+                <p className="text-lg text-[#757575] leading-relaxed">
                   Distribute document links directly to your users for electronic signatures. This method significantly enhances conversion rates compared to email and other communication channels.
                 </p>
               </div>
 
               {/* Solution 3 */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Form Submission Process</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Form Submission Process</h3>
+                <p className="text-lg text-[#757575] leading-relaxed">
                   Re-engage customers who have abandoned the form process by setting up automated messages designed to recapture their interest and complete their submissions.
                 </p>
               </div>
@@ -163,7 +163,7 @@ export default function HomePage() {
             {/* Single Image */}
             <div className="rounded-lg overflow-hidden sticky top-8 flex items-start justify-center">
               <Image 
-                src="/Phoneimage.png" 
+                src="/f0641aa7-b2ec-4a16-a15f-28e2ea1ca119.png" 
                 alt="Peachy Advance Solutions"
                 width={350} 
                 height={350}
@@ -176,17 +176,17 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-[#FB923C] rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-[#FFA97E] rounded-2xl shadow-2xl overflow-hidden">
           <div className="px-6 py-16 sm:px-12 sm:py-20 text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Join businesses that trust Peachy Advance for SMS verification and improved customer engagement.
             </p>
             <Link
               href="/signup"
-              className="inline-block px-8 py-4 bg-white text-[#FB923C] text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+              className="inline-block px-8 py-4 bg-white text-[#FFA97E] text-lg font-semibold rounded-lg hover:bg-[#FEE5D9] transition-colors shadow-lg"
             >
               Get Started Today
             </Link>
