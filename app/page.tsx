@@ -48,11 +48,11 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <h1 className="text-5xl font-extrabold text-[#4A4A4A] sm:text-6xl md:text-7xl">
-            Verify Your Customers
-            <span className="block text-[#FFA97E]">With Confidence</span>
+            Know Your Customers
+            <span className="block text-[#FFA97E]">For Real</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-xl text-[#757575]">
-            Send verification and notifications easily. Ensure your customers are who they say they are with our SMS verification service.
+            Cut through the noise. Verify identities instantly via SMS and keep your customer connections authentic and secure.
           </p>
           <div className="mt-10 flex justify-center gap-4">
             <Link
@@ -74,9 +74,9 @@ export default function HomePage() {
       {/* Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#4A4A4A]">Why Choose Peachy Verify?</h2>
+          <h2 className="text-4xl font-bold text-[#4A4A4A]">Why Peachy Verify Rocks</h2>
           <p className="mt-4 text-xl text-[#757575]">
-            Trusted by businesses to verify customer identity and improve engagement
+            Built for businesses that value real connections over fake accounts
           </p>
         </div>
 
@@ -87,10 +87,10 @@ export default function HomePage() {
               <CheckCircle className="w-12 h-12 text-[#FFA97E]" />
             </div>
             <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
-              Easy Verification
+              Dead Simple
             </h3>
             <p className="text-[#757575] text-center">
-              Simple, user-friendly verification flow that customers can complete in seconds.
+              Your customers verify in seconds. No friction, no confusion, just smooth sailing.
             </p>
           </div>
 
@@ -100,10 +100,10 @@ export default function HomePage() {
               <Zap className="w-12 h-12 text-[#FFA97E]" />
             </div>
             <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
-              Lightning Fast
+              Blazing Fast
             </h3>
             <p className="text-[#757575] text-center">
-              Optimized for speed with page loads under 2 seconds, even on mobile networks.
+              Sub-2-second load times. Because nobody's got time to wait around.
             </p>
           </div>
 
@@ -113,10 +113,10 @@ export default function HomePage() {
               <Users className="w-12 h-12 text-[#FFA97E]" />
             </div>
             <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
-              Multi-Brand Support
+              Your Brand, Your Way
             </h3>
             <p className="text-[#757575] text-center">
-              Support multiple brands with customizable styling and white-label options.
+              White-label ready with custom styling. Make it yours without the dev headache.
             </p>
           </div>
         </div>
@@ -126,9 +126,9 @@ export default function HomePage() {
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#4A4A4A]">Our Solutions</h2>
+            <h2 className="text-4xl font-bold text-[#4A4A4A]">What We Do</h2>
             <p className="mt-4 text-xl text-[#757575]">
-              Streamline your verification and engagement process
+              Three ways to level up your customer game
             </p>
           </div>
 
@@ -137,25 +137,25 @@ export default function HomePage() {
             <div className="space-y-12">
               {/* Solution 1 */}
               <div>
-                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Identity Verification</h3>
+                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Instant Identity Checks</h3>
                 <p className="text-lg text-[#757575] leading-relaxed">
-                  Begin by dispatching a straightforward verification request to your users, aiming to confirm their identity efficiently.
+                  Send a quick verification ping. Your users confirm who they are in seconds, and you get peace of mind.
                 </p>
               </div>
 
               {/* Solution 2 */}
               <div>
-                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Document Link</h3>
+                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Smart Document Delivery</h3>
                 <p className="text-lg text-[#757575] leading-relaxed">
-                  Distribute document links directly to your users for electronic signatures. This method significantly enhances conversion rates compared to email and other communication channels.
+                  Drop docs straight into your customers' texts for e-signatures. Way better conversion than email ever dreamed of.
                 </p>
               </div>
 
               {/* Solution 3 */}
               <div>
-                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Form Submission Process</h3>
+                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Win Back Drop-Offs</h3>
                 <p className="text-lg text-[#757575] leading-relaxed">
-                  Re-engage customers who have abandoned the form process by setting up automated messages designed to recapture their interest and complete their submissions.
+                  Customers bail on your form? Fire off automated nudges that actually bring them back to finish what they started.
                 </p>
               </div>
             </div>
