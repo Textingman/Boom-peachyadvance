@@ -12,7 +12,7 @@ export default function TermsPage() {
               <Link href="/" className="flex-shrink-0">
                 <Image 
                   src="/peachy-logo.png"
-                  alt="Peachy Advance" 
+                  alt="Peachy Verify" 
                   width={500} 
                   height={167}
                   className="h-24 w-auto"
@@ -58,12 +58,12 @@ export default function TermsPage() {
           
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Acceptance of Terms</h2>
           <p className="text-gray-600 mb-6">
-            By accessing or using Peachy Advance's SMS verification service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service. These Terms apply to all users of the Service, including businesses, developers, and end users.
+            By accessing or using Peachy Verify's SMS verification service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service. These Terms apply to all users of the Service, including businesses, developers, and end users.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Description of Service</h2>
           <p className="text-gray-600 mb-6">
-            Peachy Advance provides a carrier-compliant SMS verification platform that allows businesses to verify customer phone numbers through a secure, pass-through verification page. The Service includes:
+            Peachy Verify provides a carrier-compliant SMS verification platform that allows businesses to verify customer phone numbers through a secure, pass-through verification page. The Service includes:
           </p>
           <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
             <li>SMS verification landing pages</li>
@@ -142,7 +142,7 @@ export default function TermsPage() {
           
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">7.1 Our Rights</h3>
           <p className="text-gray-600 mb-6">
-            The Service and all content, features, and functionality are owned by Peachy Advance and are protected by copyright, trademark, and other intellectual property laws. You may not copy, modify, distribute, or create derivative works based on the Service without our express written permission.
+            The Service and all content, features, and functionality are owned by Peachy Verify and are protected by copyright, trademark, and other intellectual property laws. You may not copy, modify, distribute, or create derivative works based on the Service without our express written permission.
           </p>
 
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">7.2 Your Content</h3>
@@ -196,7 +196,7 @@ export default function TermsPage() {
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">11. Indemnification</h2>
           <p className="text-gray-600 mb-6">
-            You agree to indemnify, defend, and hold harmless Peachy Advance and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses (including reasonable attorney fees) arising from:
+            You agree to indemnify, defend, and hold harmless Peachy Verify and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses (including reasonable attorney fees) arising from:
           </p>
           <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
             <li>Your use of the Service</li>
@@ -248,7 +248,7 @@ export default function TermsPage() {
 
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.2 Entire Agreement</h3>
           <p className="text-gray-600 mb-6">
-            These Terms, together with our Privacy Policy, constitute the entire agreement between you and Peachy Advance regarding the Service and supersede all prior agreements.
+            These Terms, together with our Privacy Policy, constitute the entire agreement between you and Peachy Verify regarding the Service and supersede all prior agreements.
           </p>
 
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">14.3 Severability</h3>
@@ -276,9 +276,9 @@ export default function TermsPage() {
             If you have any questions about these Terms, please contact us:
           </p>
           <div className="bg-gray-50 rounded-lg p-6 mb-8">
-            <p className="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:legal@peachyadvance.com" className="text-[#FB923C] hover:text-[#F97316]">legal@peachyadvance.com</a></p>
-            <p className="text-gray-600 mb-2"><strong>Support:</strong> <a href="mailto:support@peachyadvance.com" className="text-[#FB923C] hover:text-[#F97316]">support@peachyadvance.com</a></p>
-            <p className="text-gray-600"><strong>Website:</strong> <a href="/" className="text-[#FB923C] hover:text-[#F97316]">https://peachyadvance.com</a></p>
+            <p className="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:legal@peachyverify.com" className="text-[#FB923C] hover:text-[#F97316]">legal@peachyverify.com</a></p>
+            <p className="text-gray-600 mb-2"><strong>Support:</strong> <a href="mailto:support@peachyverify.com" className="text-[#FB923C] hover:text-[#F97316]">support@peachyverify.com</a></p>
+            <p className="text-gray-600"><strong>Website:</strong> <a href="/" className="text-[#FB923C] hover:text-[#F97316]">https://peachyverify.com</a></p>
           </div>
 
         </div>
@@ -289,7 +289,7 @@ export default function TermsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">Peachy Advance</h3>
+              <h3 className="text-xl font-bold mb-4">Peachy Verify</h3>
               <p className="text-gray-400">
                 Carrier-compliant SMS verification for businesses.
               </p>
@@ -327,12 +327,12 @@ export default function TermsPage() {
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <p className="text-gray-400">
-                support@peachyadvance.com
+                support@peachyverify.com
               </p>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Peachy Advance. All rights reserved.</p>
+            <p>&copy; 2025 Peachy Verify. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -71,7 +71,7 @@ function VerifyPageContent() {
         <div className="flex justify-center mb-8">
           <Image 
             src="/peachy-logo.png"
-            alt="Peachy Advance" 
+            alt="Peachy Verify" 
             width={320} 
             height={107}
             className="h-24 w-auto"
@@ -126,7 +126,7 @@ function VerifyPageContent() {
         {/* Footer */}
         <div className="text-center pt-6 border-t border-gray-200">
           <p className="text-xs text-gray-500">
-            Secured by Peachy Advance
+            Secured by Peachy Verify
           </p>
         </div>
       </div>
