@@ -243,6 +243,7 @@ export default function HomePage() {
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2025 Peachy Verify. All rights reserved.</p>
+            <p className="mt-2 text-sm">Peachy Verify is a DBA of Bume International LLC</p>
           </div>
         </div>
       </footer>
