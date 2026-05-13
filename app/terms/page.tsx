@@ -197,7 +197,39 @@ export default function TermsPage() {
             Our total liability to you for all claims arising from or related to the Service shall not exceed the amount you paid us in the twelve (12) months preceding the claim.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">11. Indemnification</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">11. SMS Terms and Conditions</h2>
+
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.1 SMS Opt-In</h3>
+          <p className="text-gray-600 mb-6">
+            By opting in to receive SMS messages from Peachy Verify, you agree to receive account notification text messages. Opting in to SMS is optional and is not required to submit any form or to use our services. All messages will be handled by Peachy Verify, a DBA of Bume International LLC.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.2 Message Frequency and Rates</h3>
+          <p className="text-gray-600 mb-6">
+            Message frequency varies. Message and data rates may apply depending on your mobile carrier and plan. Carriers are not liable for delayed or undelivered messages.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.3 Opt-Out</h3>
+          <p className="text-gray-600 mb-6">
+            You may opt out of SMS communications at any time by replying <strong>STOP</strong> to any message you receive from us. After opting out, you will receive a one-time confirmation message and no further SMS messages will be sent to you.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.4 Help</h3>
+          <p className="text-gray-600 mb-6">
+            Reply <strong>HELP</strong> to any SMS message for assistance, or contact us by email at <a href="mailto:support@peachyverify.com" className="text-[#FB923C] hover:text-[#F97316]">support@peachyverify.com</a>.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.5 No Third-Party Sharing</h3>
+          <p className="text-gray-600 mb-6">
+            No mobile information will be shared with or sold to third parties for marketing or promotional purposes. SMS opt-in data and consent will not be shared with any third parties.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">11.6 Supported Carriers</h3>
+          <p className="text-gray-600 mb-6">
+            SMS messaging is available through most major U.S. carriers. Carrier support may vary. We are not responsible for any delays or failures in SMS delivery caused by your carrier.
+          </p>
+
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">12. Indemnification</h2>
           <p className="text-gray-600 mb-6">
             You agree to indemnify, defend, and hold harmless Peachy Verify and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses (including reasonable attorney fees) arising from:
           </p>
@@ -208,7 +240,7 @@ export default function TermsPage() {
             <li>Your violation of applicable laws or regulations</li>
           </ul>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">12. Termination</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">13. Termination</h2>
           
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">12.1 Termination by You</h3>
           <p className="text-gray-600 mb-6">
