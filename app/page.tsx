@@ -35,6 +35,9 @@ export default function HomePage() {
                 <Link href="/terms" className="text-[#757575] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
                   Terms
                 </Link>
+                <Link href="/contact" className="text-[#757575] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
+                  Contact
+                </Link>
                 <Link href="/signup" className="bg-[#FFA97E] text-white hover:bg-[#FFC6AE] px-4 py-2 rounded-md text-sm font-medium">
                   Get Started
                 </Link>
