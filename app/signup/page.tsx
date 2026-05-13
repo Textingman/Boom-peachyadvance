@@ -227,35 +227,7 @@ export default function SignupPage() {
 
                 {/* Consent Checkboxes */}
                 <div className="space-y-4">
-                  {/* SMS Consent Checkbox */}
-                  <div className="bg-[#3b3a41] text-white rounded-lg p-6">
-                    <div className="flex items-start">
-                      <input
-                        type="checkbox"
-                        id="sms-consent"
-                        className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
-                      />
-                      <label htmlFor="sms-consent" className="ml-3 text-sm leading-relaxed">
-                        By checking this box, you provide consent to receive automated SMS messages from Peachy Verify. Message frequency varies and message and data rates may apply. You may opt-out by replying 'STOP'. Reply 'HELP' for help or email support@peachyverify.com. Consent is not required as a condition of purchasing any products or services.
-                      </label>
-                    </div>
-                  </div>
-
-                  {/* Call Consent Checkbox */}
-                  <div className="bg-[#3b3a41] text-white rounded-lg p-6">
-                    <div className="flex items-start">
-                      <input
-                        type="checkbox"
-                        id="call-consent"
-                        className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
-                      />
-                      <label htmlFor="call-consent" className="ml-3 text-sm leading-relaxed">
-                        By checking this box, you provide consent to receive automated customer care calls from Peachy Verify. Call frequency varies and standard phone rates may apply. You may opt-out at any time by contacting support@peachyverify.com. Consent is not required as a condition of purchasing any products or services.
-                      </label>
-                    </div>
-                  </div>
-
-                  {/* Account Notifications Opt-in Checkbox */}
+                  {/* SMS Opt-in Checkbox */}
                   <div className="bg-gray-50 border border-gray-300 rounded-lg p-6">
                     <div className="flex items-start">
                       <input
@@ -266,7 +238,7 @@ export default function SignupPage() {
                         className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
                       />
                       <label htmlFor="account-notifications" className="ml-3 text-sm leading-relaxed text-gray-700">
-                        By checking this box, you consent to receive account notifications, service updates, and important information about your Peachy Verify account via email and SMS. You may opt-out at any time by contacting support@peachyverify.com or by following the unsubscribe instructions in our communications. Consent is not required as a condition of purchasing any products or services.
+                        By checking this box and submitting this form, you agree to receive account notification text messages from Peachy Verify. I understand I may opt out of SMS communication by replying &apos;STOP&apos;. Reply HELP or email support@peachyverify.com for help. Message and Data rates may apply. Message frequency varies. Carriers are not liable for delayed or undelivered messages. Opting in to SMS is optional and not required to submit this form or to use our services. All messages will be handled by Peachy Verify.
                       </label>
                     </div>
                   </div>

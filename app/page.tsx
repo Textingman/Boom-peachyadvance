@@ -239,6 +239,14 @@ export default function HomePage() {
               <p className="text-gray-400">
                 support@peachyverify.com
               </p>
+              <p className="text-gray-400 mt-2">
+                1309 Coffeen Avenue, Suite 1200<br />
+                Sheridan, WY 82801<br />
+                USA
+              </p>
+              <p className="text-gray-400 mt-2">
+                <a href="tel:+18886895163" className="hover:text-white">1-888-689-5163</a>
+              </p>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
