@@ -1,20 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Zap, Users, Building2, UserCircle, ArrowRight, Shield, Phone } from 'lucide-react';
+import { Building2, UserCircle, ArrowRight, ShieldCheck, Lock, Fingerprint } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FEE5D9] to-white">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-32">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0">
-                <Image 
+                <Image
                   src="/peachy-logo.png"
-                  alt="Peachy Verify" 
-                  width={500} 
+                  alt="Peachy Verify"
+                  width={500}
                   height={167}
                   className="h-24 w-auto"
                   priority
@@ -23,9 +23,6 @@ export default function HomePage() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-[#4A4A4A] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
-                  Home
-                </Link>
                 <Link href="/about" className="text-[#757575] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </Link>
@@ -38,8 +35,8 @@ export default function HomePage() {
                 <Link href="/contact" className="text-[#757575] hover:text-[#FFA97E] px-3 py-2 rounded-md text-sm font-medium">
                   Contact
                 </Link>
-                <Link href="/signup" className="bg-[#FFA97E] text-white hover:bg-[#FFC6AE] px-4 py-2 rounded-md text-sm font-medium">
-                  Get Started
+                <Link href="/business" className="bg-[#FFA97E] text-white hover:bg-[#FFC6AE] px-4 py-2 rounded-md text-sm font-medium">
+                  For Businesses
                 </Link>
               </div>
             </div>
@@ -47,304 +44,175 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center">
-          <h1 className="text-5xl font-extrabold text-[#4A4A4A] sm:text-6xl md:text-7xl">
-            Know Your Customers
-            <span className="block text-[#FFA97E]">For Real</span>
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-[#FEE5D9] to-white py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-extrabold text-[#4A4A4A] sm:text-6xl md:text-7xl leading-tight">
+            Identity. Privacy.
+            <span className="block text-[#FFA97E]">Compliance.</span>
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-xl text-[#757575]">
-            Cut through the noise. Verify identities instantly via SMS and keep your customer connections authentic and secure.
+          <p className="mt-6 max-w-3xl mx-auto text-xl text-[#757575]">
+            Peachy Verify builds the infrastructure that connects businesses and consumers through trusted, compliant SMS verification — protecting identities on both sides of every interaction.
           </p>
-          <div className="mt-10 flex justify-center gap-4">
-            <Link
-              href="/signup"
-              className="px-8 py-4 bg-[#FFA97E] text-white text-lg font-semibold rounded-lg hover:bg-[#FFC6AE] transition-colors shadow-lg"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              href="/about"
-              className="px-8 py-4 bg-white text-[#FFA97E] text-lg font-semibold rounded-lg hover:bg-[#FEE5D9] transition-colors border-2 border-[#FFA97E]"
-            >
-              Learn More
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ── SPLIT SECTION: Business vs Consumer ── */}
+      {/* What We Build */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#4A4A4A]">Two Ways to Use Peachy Verify</h2>
-          <p className="mt-4 text-xl text-[#757575]">
-            Whether you&apos;re a business verifying customers or a consumer managing your subscriptions — we&apos;ve got you covered.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Business Card */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-transparent hover:border-[#FFA97E] transition-all group">
-            <div className="bg-gradient-to-br from-[#FFA97E] to-[#F97316] p-8 text-white">
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
-                <Building2 className="w-9 h-9 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2">Business Verification</h3>
-              <p className="text-white/90 text-lg">
-                Verify your customers&apos; phone numbers with a seamless, carrier-compliant SMS flow.
-              </p>
-            </div>
-            <div className="p-8">
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#FFA97E] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#757575]">Instant phone number verification via SMS link</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#FFA97E] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#757575]">Carrier-compliant 10DLC infrastructure</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#FFA97E] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#757575]">White-label ready with custom branding</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#FFA97E] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#757575]">Seamless redirect with parameter preservation</span>
-                </li>
-              </ul>
-              <div className="flex flex-col gap-3">
-                <Link
-                  href="/signup"
-                  className="w-full py-3 px-6 bg-[#FFA97E] hover:bg-[#F97316] text-white font-semibold rounded-xl text-center transition-colors flex items-center justify-center gap-2"
-                >
-                  Get Started for Business
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/verify"
-                  className="w-full py-3 px-6 border-2 border-[#FFA97E] text-[#FFA97E] hover:bg-[#FEE5D9] font-semibold rounded-xl text-center transition-colors"
-                >
-                  View Verification Page
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Consumer Card */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-transparent hover:border-[#FB923C] transition-all group">
-            <div className="bg-gradient-to-br from-[#4A4A4A] to-[#3b3a41] p-8 text-white">
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
-                <UserCircle className="w-9 h-9 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2">Consumer Portal</h3>
-              <p className="text-white/90 text-lg">
-                Take control of your SMS subscriptions. See every app you&apos;ve opted into and manage them in one place.
-              </p>
-            </div>
-            <div className="p-8">
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#4A4A4A] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#757575]">View all apps you&apos;ve opted into via SMS</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#4A4A4A] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#757575]">Opt out of individual services with one click</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#4A4A4A] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#757575]">Re-subscribe to services you want back</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#4A4A4A] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#757575]">Secure phone verification to protect your privacy</span>
-                </li>
-              </ul>
-              <div className="flex flex-col gap-3">
-                <Link
-                  href="/consumer"
-                  className="w-full py-3 px-6 bg-[#4A4A4A] hover:bg-[#3b3a41] text-white font-semibold rounded-xl text-center transition-colors flex items-center justify-center gap-2"
-                >
-                  Manage My Subscriptions
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <p className="text-center text-sm text-gray-400">
-                  No account needed — just your phone number
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#4A4A4A]">Why Peachy Verify Rocks</h2>
-          <p className="mt-4 text-xl text-[#757575]">
-            Built for businesses that value real connections over fake accounts
+          <h2 className="text-3xl font-bold text-[#4A4A4A] mb-4">What We Build</h2>
+          <p className="text-lg text-[#757575] max-w-2xl mx-auto">
+            Our platform delivers identity verification, consumer privacy, and carrier-compliant SMS infrastructure — all in one place.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Feature 1 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-            <div className="flex justify-center mb-4">
-              <CheckCircle className="w-12 h-12 text-[#FFA97E]" />
+          <div className="bg-orange-50 rounded-2xl p-8 text-center">
+            <div className="w-14 h-14 bg-[#FFA97E] rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <Fingerprint className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
-              Dead Simple
-            </h3>
-            <p className="text-[#757575] text-center">
-              Your customers verify in seconds. No friction, no confusion, just smooth sailing.
+            <h3 className="text-xl font-bold text-[#4A4A4A] mb-3">Identity Solutions</h3>
+            <p className="text-[#757575]">
+              Carrier-compliant phone verification that confirms who your customers really are — in seconds, not days.
             </p>
           </div>
 
-          {/* Feature 2 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-            <div className="flex justify-center mb-4">
-              <Zap className="w-12 h-12 text-[#FFA97E]" />
+          <div className="bg-orange-50 rounded-2xl p-8 text-center">
+            <div className="w-14 h-14 bg-[#FFA97E] rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <Lock className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
-              Blazing Fast
-            </h3>
-            <p className="text-[#757575] text-center">
-              Sub-2-second load times. Because nobody&apos;s got time to wait around.
+            <h3 className="text-xl font-bold text-[#4A4A4A] mb-3">Privacy Infrastructure</h3>
+            <p className="text-[#757575]">
+              A privacy proxy layer that shields consumers&apos; real phone numbers from businesses while keeping communication flowing.
             </p>
           </div>
 
-          {/* Feature 3 */}
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-            <div className="flex justify-center mb-4">
-              <Users className="w-12 h-12 text-[#FFA97E]" />
+          <div className="bg-orange-50 rounded-2xl p-8 text-center">
+            <div className="w-14 h-14 bg-[#FFA97E] rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <ShieldCheck className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-[#4A4A4A] text-center mb-3">
-              Your Brand, Your Way
-            </h3>
-            <p className="text-[#757575] text-center">
-              White-label ready with custom styling. Make it yours without the dev headache.
+            <h3 className="text-xl font-bold text-[#4A4A4A] mb-3">Compliance Tools</h3>
+            <p className="text-[#757575]">
+              10DLC-compliant opt-in management, consent tracking, and STOP/HELP handling built into every interaction.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Our Solutions Section */}
-      <section className="bg-white py-20">
+      {/* Choose Your Path */}
+      <section className="bg-[#4A4A4A] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#4A4A4A]">What We Do</h2>
-            <p className="mt-4 text-xl text-[#757575]">
-              Three ways to level up your customer game
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold text-white mb-4">Who Are You?</h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Peachy Verify serves two audiences. Choose your path to get started.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            {/* Solutions List */}
-            <div className="space-y-12">
-              {/* Solution 1 */}
-              <div>
-                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Instant Identity Checks</h3>
-                <p className="text-lg text-[#757575] leading-relaxed">
-                  Send a quick verification ping. Your users confirm who they are in seconds, and you get peace of mind.
-                </p>
-              </div>
-
-              {/* Solution 2 */}
-              <div>
-                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Smart Document Delivery</h3>
-                <p className="text-lg text-[#757575] leading-relaxed">
-                  Drop docs straight into your customers&apos; texts for e-signatures. Way better conversion than email ever dreamed of.
-                </p>
-              </div>
-
-              {/* Solution 3 */}
-              <div>
-                <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Win Back Drop-Offs</h3>
-                <p className="text-lg text-[#757575] leading-relaxed">
-                  Customers bail on your form? Fire off automated nudges that actually bring them back to finish what they started.
-                </p>
-              </div>
-            </div>
-
-            {/* Single Image */}
-            <div className="rounded-lg overflow-hidden sticky top-8 flex items-start justify-center">
-              <Image 
-                src="/f0641aa7-b2ec-4a16-a15f-28e2ea1ca119.png" 
-                alt="Peachy Verify Solutions"
-                width={350} 
-                height={350}
-                className="w-auto h-auto object-contain max-w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Consumer Trust Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-gradient-to-r from-[#4A4A4A] to-[#3b3a41] rounded-2xl shadow-2xl overflow-hidden">
-          <div className="px-6 py-16 sm:px-12 sm:py-20">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-bold text-white mb-6">
-                  Are You a Consumer?
-                </h2>
-                <p className="text-xl text-gray-300 mb-8">
-                  Wondering which apps have your phone number? Take control of your SMS subscriptions — view and manage every service you&apos;ve opted into, all in one place.
-                </p>
-                <Link
-                  href="/consumer"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFA97E] text-white text-lg font-semibold rounded-lg hover:bg-[#FFC6AE] transition-colors shadow-lg"
-                >
-                  <Phone className="w-5 h-5" />
-                  Manage My Subscriptions
-                </Link>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 rounded-xl p-6 text-center">
-                  <Shield className="w-10 h-10 text-[#FFA97E] mx-auto mb-3" />
-                  <h4 className="text-white font-semibold mb-1">Private & Secure</h4>
-                  <p className="text-gray-400 text-sm">Your data is never sold or shared</p>
-                </div>
-                <div className="bg-white/10 rounded-xl p-6 text-center">
-                  <CheckCircle className="w-10 h-10 text-[#FFA97E] mx-auto mb-3" />
-                  <h4 className="text-white font-semibold mb-1">One-Click Opt-Out</h4>
-                  <p className="text-gray-400 text-sm">Unsubscribe from any service instantly</p>
-                </div>
-                <div className="bg-white/10 rounded-xl p-6 text-center">
-                  <Phone className="w-10 h-10 text-[#FFA97E] mx-auto mb-3" />
-                  <h4 className="text-white font-semibold mb-1">Phone Verified</h4>
-                  <p className="text-gray-400 text-sm">Only you can access your subscriptions</p>
-                </div>
-                <div className="bg-white/10 rounded-xl p-6 text-center">
-                  <Zap className="w-10 h-10 text-[#FFA97E] mx-auto mb-3" />
-                  <h4 className="text-white font-semibold mb-1">Instant Access</h4>
-                  <p className="text-gray-400 text-sm">No account or password needed</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-[#FFA97E] rounded-2xl shadow-2xl overflow-hidden">
-          <div className="px-6 py-16 sm:px-12 sm:py-20 text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join businesses that trust Peachy Verify for SMS verification and improved customer engagement.
-            </p>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Business Card */}
             <Link
-              href="/signup"
-              className="inline-block px-8 py-4 bg-white text-[#FFA97E] text-lg font-semibold rounded-lg hover:bg-[#FEE5D9] transition-colors shadow-lg"
+              href="/business"
+              className="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-orange-200 hover:-translate-y-1 transition-all duration-300"
             >
-              Get Started Today
+              <div className="bg-gradient-to-br from-[#FFA97E] to-[#F97316] p-10">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-5">
+                  <Building2 className="w-9 h-9 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-3">I&apos;m a Business</h3>
+                <p className="text-white/90 text-lg">
+                  I want to verify my customers&apos; phone numbers and improve SMS delivery rates.
+                </p>
+              </div>
+              <div className="p-8">
+                <ul className="space-y-3 mb-8 text-[#757575]">
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#FFA97E] rounded-full flex-shrink-0" />
+                    Instant SMS phone verification
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#FFA97E] rounded-full flex-shrink-0" />
+                    Carrier-compliant 10DLC infrastructure
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#FFA97E] rounded-full flex-shrink-0" />
+                    White-label with your branding
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#FFA97E] rounded-full flex-shrink-0" />
+                    Seamless redirect & parameter passing
+                  </li>
+                </ul>
+                <div className="flex items-center gap-2 text-[#FFA97E] font-semibold text-lg group-hover:gap-4 transition-all">
+                  Explore Business Solutions
+                  <ArrowRight className="w-5 h-5" />
+                </div>
+              </div>
             </Link>
+
+            {/* Consumer Card */}
+            <Link
+              href="/consumer"
+              className="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-gray-300 hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="bg-gradient-to-br from-[#4A4A4A] to-[#2d2c33] p-10">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-5">
+                  <UserCircle className="w-9 h-9 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-3">I&apos;m a Consumer</h3>
+                <p className="text-white/90 text-lg">
+                  I want to protect my phone number and manage which apps can text me.
+                </p>
+              </div>
+              <div className="p-8">
+                <ul className="space-y-3 mb-8 text-[#757575]">
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#4A4A4A] rounded-full flex-shrink-0" />
+                    Your real number stays hidden from businesses
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#4A4A4A] rounded-full flex-shrink-0" />
+                    Manage all SMS opt-ins in one place
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#4A4A4A] rounded-full flex-shrink-0" />
+                    One-click opt-out from any service
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#4A4A4A] rounded-full flex-shrink-0" />
+                    Free to join — no credit card needed
+                  </li>
+                </ul>
+                <div className="flex items-center gap-2 text-[#4A4A4A] font-semibold text-lg group-hover:gap-4 transition-all">
+                  Explore Consumer Portal
+                  <ArrowRight className="w-5 h-5" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Bar */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#4A4A4A] mb-4">Built on Trust</h2>
+          <p className="text-lg text-[#757575] max-w-2xl mx-auto">
+            Every product we build is grounded in three principles.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div className="text-5xl font-extrabold text-[#FFA97E] mb-3">Identity</div>
+            <p className="text-[#757575]">We verify who people are so businesses can trust their customers and consumers can trust the services they use.</p>
+          </div>
+          <div>
+            <div className="text-5xl font-extrabold text-[#FFA97E] mb-3">Privacy</div>
+            <p className="text-[#757575]">We protect personal data at every step — your phone number, your identity, and your choices are always yours.</p>
+          </div>
+          <div>
+            <div className="text-5xl font-extrabold text-[#FFA97E] mb-3">Compliance</div>
+            <p className="text-[#757575]">We build to carrier standards, TCPA requirements, and 10DLC regulations so you never have to worry about it.</p>
           </div>
         </div>
       </section>
@@ -356,49 +224,27 @@ export default function HomePage() {
             <div>
               <h3 className="text-xl font-bold mb-4">Peachy Verify</h3>
               <p className="text-gray-400">
-                SMS verification for businesses and consumers.
+                Identity, privacy, and compliance solutions for businesses and consumers.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
+              <h4 className="font-semibold mb-4">Solutions</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/signup" className="text-gray-400 hover:text-white">
-                    Get Started
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/consumer" className="text-gray-400 hover:text-white">
-                    Consumer Portal
-                  </Link>
-                </li>
+                <li><Link href="/business" className="text-gray-400 hover:text-white">For Businesses</Link></li>
+                <li><Link href="/consumer" className="text-gray-400 hover:text-white">For Consumers</Link></li>
+                <li><Link href="/about" className="text-gray-400 hover:text-white">About</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-white">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-white">
-                    Terms of Service
-                  </Link>
-                </li>
+                <li><Link href="/privacy" className="text-gray-400 hover:text-white">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="text-gray-400 hover:text-white">Terms of Service</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400">
-                support@peachyverify.com
-              </p>
+              <p className="text-gray-400">support@peachyverify.com</p>
               <p className="text-gray-400 mt-2">
                 1309 Coffeen Avenue, Suite 1200<br />
                 Sheridan, WY 82801<br />
