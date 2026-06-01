@@ -68,6 +68,9 @@ export default function ConsumerPage() {
                 <Link href="/contact" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
                   Contact
                 </Link>
+                <Link href="/business" className="border border-[#FB923C] text-[#FB923C] hover:bg-orange-50 px-4 py-2 rounded-md text-sm font-medium">
+                  For Businesses
+                </Link>
                 <Link href="#signup" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
                   Get Started
                 </Link>
