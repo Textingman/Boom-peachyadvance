@@ -39,7 +39,7 @@ export default function HomePage() {
                 <Link href="/consumer" className="border border-[#FFA97E] text-[#FFA97E] hover:bg-[#FEE5D9] px-4 py-2 rounded-md text-sm font-medium">
                   For Consumers
                 </Link>
-                <Link href="/business" className="bg-[#FFA97E] text-white hover:bg-[#FFC6AE] px-4 py-2 rounded-md text-sm font-medium">
+                <Link href="/business" className="border border-[#FFA97E] bg-[#FFA97E] text-white hover:bg-[#FFC6AE] px-4 py-2 rounded-md text-sm font-medium">
                   For Businesses
                 </Link>
               </div>

@@ -39,8 +39,8 @@ export default function PrivacyPage() {
                 <Link href="/consumer" className="border border-[#FB923C] text-[#FB923C] hover:bg-orange-50 px-4 py-2 rounded-md text-sm font-medium">
                   For Consumers
                 </Link>
-                <Link href="/signup" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
-                  Get Started
+                <Link href="/business" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
+                  For Businesses
                 </Link>
               </div>
             </div>
