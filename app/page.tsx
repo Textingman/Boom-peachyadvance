@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Zap, Users } from 'lucide-react';
+import { CheckCircle, Zap, Users, Building2, UserCircle, ArrowRight, Shield, Phone } from 'lucide-react';
 
 export default function HomePage() {
   return (
@@ -74,6 +74,111 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── SPLIT SECTION: Business vs Consumer ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#4A4A4A]">Two Ways to Use Peachy Verify</h2>
+          <p className="mt-4 text-xl text-[#757575]">
+            Whether you&apos;re a business verifying customers or a consumer managing your subscriptions — we&apos;ve got you covered.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Business Card */}
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-transparent hover:border-[#FFA97E] transition-all group">
+            <div className="bg-gradient-to-br from-[#FFA97E] to-[#F97316] p-8 text-white">
+              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
+                <Building2 className="w-9 h-9 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Business Verification</h3>
+              <p className="text-white/90 text-lg">
+                Verify your customers&apos; phone numbers with a seamless, carrier-compliant SMS flow.
+              </p>
+            </div>
+            <div className="p-8">
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#FFA97E] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#757575]">Instant phone number verification via SMS link</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#FFA97E] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#757575]">Carrier-compliant 10DLC infrastructure</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#FFA97E] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#757575]">White-label ready with custom branding</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#FFA97E] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#757575]">Seamless redirect with parameter preservation</span>
+                </li>
+              </ul>
+              <div className="flex flex-col gap-3">
+                <Link
+                  href="/signup"
+                  className="w-full py-3 px-6 bg-[#FFA97E] hover:bg-[#F97316] text-white font-semibold rounded-xl text-center transition-colors flex items-center justify-center gap-2"
+                >
+                  Get Started for Business
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/verify"
+                  className="w-full py-3 px-6 border-2 border-[#FFA97E] text-[#FFA97E] hover:bg-[#FEE5D9] font-semibold rounded-xl text-center transition-colors"
+                >
+                  View Verification Page
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Consumer Card */}
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-transparent hover:border-[#FB923C] transition-all group">
+            <div className="bg-gradient-to-br from-[#4A4A4A] to-[#3b3a41] p-8 text-white">
+              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
+                <UserCircle className="w-9 h-9 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Consumer Portal</h3>
+              <p className="text-white/90 text-lg">
+                Take control of your SMS subscriptions. See every app you&apos;ve opted into and manage them in one place.
+              </p>
+            </div>
+            <div className="p-8">
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#4A4A4A] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#757575]">View all apps you&apos;ve opted into via SMS</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#4A4A4A] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#757575]">Opt out of individual services with one click</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#4A4A4A] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#757575]">Re-subscribe to services you want back</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#4A4A4A] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#757575]">Secure phone verification to protect your privacy</span>
+                </li>
+              </ul>
+              <div className="flex flex-col gap-3">
+                <Link
+                  href="/consumer"
+                  className="w-full py-3 px-6 bg-[#4A4A4A] hover:bg-[#3b3a41] text-white font-semibold rounded-xl text-center transition-colors flex items-center justify-center gap-2"
+                >
+                  Manage My Subscriptions
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <p className="text-center text-sm text-gray-400">
+                  No account needed — just your phone number
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
@@ -106,7 +211,7 @@ export default function HomePage() {
               Blazing Fast
             </h3>
             <p className="text-[#757575] text-center">
-              Sub-2-second load times. Because nobody's got time to wait around.
+              Sub-2-second load times. Because nobody&apos;s got time to wait around.
             </p>
           </div>
 
@@ -150,7 +255,7 @@ export default function HomePage() {
               <div>
                 <h3 className="text-2xl font-bold text-[#4A4A4A] mb-4">Smart Document Delivery</h3>
                 <p className="text-lg text-[#757575] leading-relaxed">
-                  Drop docs straight into your customers' texts for e-signatures. Way better conversion than email ever dreamed of.
+                  Drop docs straight into your customers&apos; texts for e-signatures. Way better conversion than email ever dreamed of.
                 </p>
               </div>
 
@@ -172,6 +277,53 @@ export default function HomePage() {
                 height={350}
                 className="w-auto h-auto object-contain max-w-full"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Consumer Trust Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="bg-gradient-to-r from-[#4A4A4A] to-[#3b3a41] rounded-2xl shadow-2xl overflow-hidden">
+          <div className="px-6 py-16 sm:px-12 sm:py-20">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-bold text-white mb-6">
+                  Are You a Consumer?
+                </h2>
+                <p className="text-xl text-gray-300 mb-8">
+                  Wondering which apps have your phone number? Take control of your SMS subscriptions — view and manage every service you&apos;ve opted into, all in one place.
+                </p>
+                <Link
+                  href="/consumer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFA97E] text-white text-lg font-semibold rounded-lg hover:bg-[#FFC6AE] transition-colors shadow-lg"
+                >
+                  <Phone className="w-5 h-5" />
+                  Manage My Subscriptions
+                </Link>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <Shield className="w-10 h-10 text-[#FFA97E] mx-auto mb-3" />
+                  <h4 className="text-white font-semibold mb-1">Private & Secure</h4>
+                  <p className="text-gray-400 text-sm">Your data is never sold or shared</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <CheckCircle className="w-10 h-10 text-[#FFA97E] mx-auto mb-3" />
+                  <h4 className="text-white font-semibold mb-1">One-Click Opt-Out</h4>
+                  <p className="text-gray-400 text-sm">Unsubscribe from any service instantly</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <Phone className="w-10 h-10 text-[#FFA97E] mx-auto mb-3" />
+                  <h4 className="text-white font-semibold mb-1">Phone Verified</h4>
+                  <p className="text-gray-400 text-sm">Only you can access your subscriptions</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <Zap className="w-10 h-10 text-[#FFA97E] mx-auto mb-3" />
+                  <h4 className="text-white font-semibold mb-1">Instant Access</h4>
+                  <p className="text-gray-400 text-sm">No account or password needed</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -204,7 +356,7 @@ export default function HomePage() {
             <div>
               <h3 className="text-xl font-bold mb-4">Peachy Verify</h3>
               <p className="text-gray-400">
-                SMS verification for businesses.
+                SMS verification for businesses and consumers.
               </p>
             </div>
             <div>
@@ -218,6 +370,11 @@ export default function HomePage() {
                 <li>
                   <Link href="/signup" className="text-gray-400 hover:text-white">
                     Get Started
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/consumer" className="text-gray-400 hover:text-white">
+                    Consumer Portal
                   </Link>
                 </li>
               </ul>
