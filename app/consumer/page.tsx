@@ -1,453 +1,483 @@
 'use client';
 
-import { useState, Suspense } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Phone, CheckCircle, XCircle, ShieldCheck, LogOut, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import { useState } from 'react';
+import { Mail, Phone, User, ShieldCheck, EyeOff, Smartphone, CheckCircle, Lock, ArrowRight } from 'lucide-react';
 
-// Mock data for demonstration — in production this would come from an API
-const MOCK_APP_SUBSCRIPTIONS: Record<string, { id: string; name: string; description: string; optedIn: boolean; lastActivity: string }[]> = {
-  '5551234567': [
-    { id: '1', name: 'ShopEasy', description: 'Order updates & promotions', optedIn: true, lastActivity: 'May 28, 2026' },
-    { id: '2', name: 'FitTrack Pro', description: 'Workout reminders & tips', optedIn: true, lastActivity: 'May 30, 2026' },
-    { id: '3', name: 'QuickLoans', description: 'Loan status notifications', optedIn: false, lastActivity: 'Apr 12, 2026' },
-    { id: '4', name: 'LocalEats', description: 'Restaurant deals & delivery updates', optedIn: true, lastActivity: 'Jun 1, 2026' },
-  ],
-  '5559876543': [
-    { id: '5', name: 'TravelNow', description: 'Flight & hotel alerts', optedIn: true, lastActivity: 'May 15, 2026' },
-    { id: '6', name: 'HealthHub', description: 'Appointment reminders', optedIn: true, lastActivity: 'May 22, 2026' },
-  ],
-};
+export default function ConsumerPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
+  const [accountNotifications, setAccountNotifications] = useState(false);
+  const [termsConsent, setTermsConsent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-type AppSubscription = {
-  id: string;
-  name: string;
-  description: string;
-  optedIn: boolean;
-  lastActivity: string;
-};
-
-type Step = 'enter-phone' | 'verify-code' | 'manage-apps';
-
-function ConsumerPageContent() {
-  const [step, setStep] = useState<Step>('enter-phone');
-  const [phone, setPhone] = useState('');
-  const [phoneDisplay, setPhoneDisplay] = useState('');
-  const [verificationCode, setVerificationCode] = useState('');
-  const [codeSent, setCodeSent] = useState(false);
-  const [isSending, setIsSending] = useState(false);
-  const [isVerifying, setIsVerifying] = useState(false);
-  const [error, setError] = useState('');
-  const [apps, setApps] = useState<AppSubscription[]>([]);
-  const [optOutConfirm, setOptOutConfirm] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState('');
-
-  const formatPhoneDisplay = (value: string) => {
-    const digits = value.replace(/\D/g, '').slice(0, 10);
-    if (digits.length <= 3) return digits;
-    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
-  };
-
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const raw = e.target.value.replace(/\D/g, '').slice(0, 10);
-    setPhone(raw);
-    setPhoneDisplay(formatPhoneDisplay(raw));
-    setError('');
-  };
-
-  const handleSendCode = () => {
-    if (phone.length < 10) {
-      setError('Please enter a valid 10-digit phone number.');
-      return;
-    }
-    setIsSending(true);
-    setError('');
-    // Simulate sending verification code
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // TODO: Integrate with Web3Forms later
     setTimeout(() => {
-      setIsSending(false);
-      setCodeSent(true);
-      setStep('verify-code');
+      setIsSubmitting(false);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '' });
+      setAccountNotifications(false);
+      setTermsConsent(false);
     }, 1500);
   };
 
-  const handleVerifyCode = () => {
-    if (verificationCode.length < 4) {
-      setError('Please enter the verification code.');
-      return;
-    }
-    setIsVerifying(true);
-    setError('');
-    // Simulate code verification — accept any 4+ digit code for demo
-    setTimeout(() => {
-      setIsVerifying(false);
-      // Load mock apps for this phone number (or empty list)
-      const userApps = MOCK_APP_SUBSCRIPTIONS[phone] || [];
-      setApps(userApps);
-      setStep('manage-apps');
-    }, 1500);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const handleOptOut = (appId: string) => {
-    setApps(prev =>
-      prev.map(app =>
-        app.id === appId ? { ...app, optedIn: false } : app
-      )
-    );
-    setOptOutConfirm(null);
-    setSuccessMessage('You have been opted out successfully.');
-    setTimeout(() => setSuccessMessage(''), 4000);
-  };
-
-  const handleOptIn = (appId: string) => {
-    setApps(prev =>
-      prev.map(app =>
-        app.id === appId ? { ...app, optedIn: true } : app
-      )
-    );
-    setSuccessMessage('You have been opted back in successfully.');
-    setTimeout(() => setSuccessMessage(''), 4000);
-  };
-
-  const maskedPhone = phone
-    ? `(***) ***-${phone.slice(-4)}`
-    : '';
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <Link href="/" className="flex-shrink-0">
-              <Image
-                src="/peachy-logo.png"
-                alt="Peachy Verify"
-                width={320}
-                height={107}
-                className="h-14 w-auto"
-                priority
-              />
-            </Link>
-            <div className="flex items-center gap-4">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-[#FB923C] text-sm font-medium"
-              >
-                ← Back to Home
+          <div className="flex justify-between items-center h-32">
+            <div className="flex items-center">
+              <Link href="/" className="flex-shrink-0">
+                <Image
+                  src="/peachy-logo.png"
+                  alt="Peachy Verify"
+                  width={500}
+                  height={167}
+                  className="h-24 w-auto"
+                  priority
+                />
               </Link>
+            </div>
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                <Link href="/" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                  Home
+                </Link>
+                <Link href="/about" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                  About
+                </Link>
+                <Link href="/privacy" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                  Privacy
+                </Link>
+                <Link href="/terms" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                  Terms
+                </Link>
+                <Link href="/contact" className="text-gray-600 hover:text-[#FB923C] px-3 py-2 rounded-md text-sm font-medium">
+                  Contact
+                </Link>
+                <Link href="/signup" className="bg-[#FB923C] text-white hover:bg-[#F97316] px-4 py-2 rounded-md text-sm font-medium">
+                  For Businesses
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-lg mx-auto px-4 py-12">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <ShieldCheck className="w-9 h-9 text-[#FB923C]" />
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-orange-50 to-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-orange-100 text-[#FB923C] text-sm font-semibold px-4 py-2 rounded-full mb-6">
+              <ShieldCheck className="w-4 h-4" />
+              Consumer Privacy Protection
+            </div>
+            <h1 className="text-5xl font-extrabold text-gray-900 mb-6">
+              Your Phone Number.
+              <span className="block text-[#FB923C]">Your Privacy. Your Control.</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Peachy Verify acts as a <strong>privacy proxy</strong> between you and the businesses you interact with. We manage your SMS opt-ins so businesses never see your real phone number — and you stay in control of every subscription.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="#signup"
+                className="px-8 py-4 bg-[#FB923C] text-white text-lg font-semibold rounded-lg hover:bg-[#F97316] transition-colors shadow-lg flex items-center justify-center gap-2"
+              >
+                Get Started Free
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#how-it-works"
+                className="px-8 py-4 bg-white text-[#FB923C] text-lg font-semibold rounded-lg hover:bg-orange-50 transition-colors border-2 border-[#FB923C]"
+              >
+                How It Works
+              </a>
+            </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Manage Your Subscriptions
-          </h1>
-          <p className="text-gray-600">
-            Enter your phone number to view and manage all the apps and services you&apos;ve opted into via SMS.
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section id="how-it-works" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">How Peachy Verify Protects You</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            We sit between you and every business you text with — keeping your real number private while keeping you connected.
           </p>
         </div>
 
-        {/* Step Indicator */}
-        <div className="flex items-center justify-center gap-2 mb-8">
-          {(['enter-phone', 'verify-code', 'manage-apps'] as Step[]).map((s, i) => (
-            <div key={s} className="flex items-center gap-2">
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${
-                  step === s
-                    ? 'bg-[#FB923C] text-white'
-                    : (step === 'verify-code' && s === 'enter-phone') ||
-                      (step === 'manage-apps' && (s === 'enter-phone' || s === 'verify-code'))
-                    ? 'bg-green-500 text-white'
-                    : 'bg-gray-200 text-gray-500'
-                }`}
-              >
-                {(step === 'verify-code' && s === 'enter-phone') ||
-                (step === 'manage-apps' && (s === 'enter-phone' || s === 'verify-code')) ? (
-                  <CheckCircle className="w-5 h-5" />
-                ) : (
-                  i + 1
-                )}
-              </div>
-              {i < 2 && (
-                <div
-                  className={`w-8 h-0.5 ${
-                    (step === 'verify-code' && i === 0) ||
-                    (step === 'manage-apps' && i <= 1)
-                      ? 'bg-green-500'
-                      : 'bg-gray-200'
-                  }`}
-                />
-              )}
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center bg-orange-50 rounded-2xl p-8">
+            <div className="w-16 h-16 bg-[#FB923C] rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <EyeOff className="w-8 h-8 text-white" />
             </div>
-          ))}
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Your Number Stays Hidden</h3>
+            <p className="text-gray-600">
+              Businesses interact with a Peachy Verify proxy number — not your real phone number. Your personal number is never exposed.
+            </p>
+          </div>
+
+          <div className="text-center bg-orange-50 rounded-2xl p-8">
+            <div className="w-16 h-16 bg-[#FB923C] rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Smartphone className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">One Dashboard, All Your Apps</h3>
+            <p className="text-gray-600">
+              See every service you&apos;ve opted into in one place. Manage all your SMS subscriptions without hunting through your messages.
+            </p>
+          </div>
+
+          <div className="text-center bg-orange-50 rounded-2xl p-8">
+            <div className="w-16 h-16 bg-[#FB923C] rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Lock className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Instant Opt-Out Control</h3>
+            <p className="text-gray-600">
+              Opt out of any service with one click. No more texting STOP to a dozen different numbers — we handle it all for you.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features / Value Props */}
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                The SMS Privacy Layer You&apos;ve Always Needed
+              </h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
+                    <ShieldCheck className="w-5 h-5 text-[#FB923C]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Privacy by Design</h3>
+                    <p className="text-gray-600">Your real phone number is never shared with any business. We act as the intermediary so you stay anonymous.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 text-[#FB923C]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Centralized Opt-In Management</h3>
+                    <p className="text-gray-600">All your SMS subscriptions in one place. Know exactly which apps have permission to text you and revoke it instantly.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
+                    <Smartphone className="w-5 h-5 text-[#FB923C]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Still Get the Messages You Want</h3>
+                    <p className="text-gray-600">Transactional messages, order updates, and alerts you care about still come through — just without exposing your real number.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
+                    <Lock className="w-5 h-5 text-[#FB923C]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">No Data Selling. Ever.</h3>
+                    <p className="text-gray-600">We will never sell or share your mobile information with third parties for marketing purposes. Your data is yours.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-4 bg-green-50 rounded-xl border border-green-200">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">ShopEasy</p>
+                    <p className="text-xs text-gray-500">Order updates · Opted In</p>
+                  </div>
+                  <span className="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Active</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-green-50 rounded-xl border border-green-200">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">FitTrack Pro</p>
+                    <p className="text-xs text-gray-500">Workout reminders · Opted In</p>
+                  </div>
+                  <span className="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Active</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-200">
+                  <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-gray-500 text-sm">QuickLoans</p>
+                    <p className="text-xs text-gray-400">Loan notifications · Opted Out</p>
+                  </div>
+                  <span className="ml-auto text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full font-medium">Paused</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-green-50 rounded-xl border border-green-200">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">LocalEats</p>
+                    <p className="text-xs text-gray-500">Deals & delivery · Opted In</p>
+                  </div>
+                  <span className="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Active</span>
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100 text-center">
+                  <p className="text-xs text-gray-400">Your real number: <span className="font-mono font-semibold text-gray-600">🔒 Hidden from all businesses</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sign Up Form */}
+      <section id="signup" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Join Peachy Verify for Free
+          </h2>
+          <p className="text-xl text-gray-600">
+            Sign up to get your privacy proxy number and start managing your SMS subscriptions in one place.
+          </p>
         </div>
 
-        {/* Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-
-          {/* Success Message */}
-          {successMessage && (
-            <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4 flex items-center gap-3">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-              <p className="text-green-800 text-sm font-medium">{successMessage}</p>
-            </div>
-          )}
-
-          {/* Error Message */}
-          {error && (
-            <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-3">
-              <XCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-              <p className="text-red-700 text-sm">{error}</p>
-            </div>
-          )}
-
-          {/* Step 1: Enter Phone */}
-          {step === 'enter-phone' && (
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Enter Your Phone Number</h2>
-              <p className="text-gray-500 text-sm mb-6">
-                We&apos;ll send a one-time verification code to confirm your identity.
-              </p>
-              <div className="relative mb-6">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Phone className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  type="tel"
-                  value={phoneDisplay}
-                  onChange={handlePhoneChange}
-                  placeholder="(555) 123-4567"
-                  className="block w-full pl-12 pr-4 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-[#FB923C] focus:outline-none transition-colors"
-                />
+        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          {submitStatus === 'success' ? (
+            <div className="text-center py-12">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-              <button
-                onClick={handleSendCode}
-                disabled={isSending}
-                className={`w-full py-4 px-6 rounded-xl text-lg font-semibold transition-all flex items-center justify-center gap-2 ${
-                  isSending
-                    ? 'bg-gray-300 cursor-not-allowed text-gray-500'
-                    : 'bg-[#FB923C] hover:bg-[#F97316] text-white shadow-lg hover:shadow-xl'
-                }`}
-              >
-                {isSending ? (
-                  <>
-                    <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Sending Code...
-                  </>
-                ) : (
-                  <>
-                    Send Verification Code
-                    <ChevronRight className="w-5 h-5" />
-                  </>
-                )}
-              </button>
-              <p className="text-center text-xs text-gray-400 mt-4">
-                Standard message rates may apply. We will only use your number to verify your identity.
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">You&apos;re on the list!</h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Thanks for signing up. We&apos;ll reach out shortly with your Peachy Verify privacy number and account details.
               </p>
-            </div>
-          )}
-
-          {/* Step 2: Verify Code */}
-          {step === 'verify-code' && (
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Enter Verification Code</h2>
-              <p className="text-gray-500 text-sm mb-6">
-                We sent a code to <span className="font-semibold text-gray-700">{maskedPhone}</span>. Enter it below to continue.
-              </p>
-              <input
-                type="text"
-                inputMode="numeric"
-                maxLength={6}
-                value={verificationCode}
-                onChange={(e) => {
-                  setVerificationCode(e.target.value.replace(/\D/g, '').slice(0, 6));
-                  setError('');
-                }}
-                placeholder="Enter code"
-                className="block w-full px-4 py-4 text-2xl font-bold text-center tracking-widest border-2 border-gray-200 rounded-xl focus:border-[#FB923C] focus:outline-none transition-colors mb-6"
-              />
-              <button
-                onClick={handleVerifyCode}
-                disabled={isVerifying}
-                className={`w-full py-4 px-6 rounded-xl text-lg font-semibold transition-all flex items-center justify-center gap-2 ${
-                  isVerifying
-                    ? 'bg-gray-300 cursor-not-allowed text-gray-500'
-                    : 'bg-[#FB923C] hover:bg-[#F97316] text-white shadow-lg hover:shadow-xl'
-                }`}
+              <Link
+                href="/"
+                className="inline-block px-6 py-3 bg-[#FB923C] text-white font-semibold rounded-lg hover:bg-[#F97316] transition-colors"
               >
-                {isVerifying ? (
-                  <>
-                    <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Verifying...
-                  </>
-                ) : (
-                  <>
-                    Verify & View My Apps
-                    <ChevronRight className="w-5 h-5" />
-                  </>
-                )}
-              </button>
-              <button
-                onClick={() => { setStep('enter-phone'); setVerificationCode(''); setError(''); }}
-                className="w-full mt-3 py-3 px-6 rounded-xl text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                ← Change phone number
-              </button>
+                Return to Home
+              </Link>
             </div>
-          )}
-
-          {/* Step 3: Manage Apps */}
-          {step === 'manage-apps' && (
-            <div>
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900">Your App Subscriptions</h2>
-                  <p className="text-gray-500 text-sm mt-1">
-                    Showing subscriptions for <span className="font-semibold text-gray-700">{maskedPhone}</span>
-                  </p>
-                </div>
-                <button
-                  onClick={() => { setStep('enter-phone'); setPhone(''); setPhoneDisplay(''); setVerificationCode(''); setApps([]); }}
-                  className="text-xs text-gray-400 hover:text-gray-600 flex items-center gap-1"
-                >
-                  <LogOut className="w-3.5 h-3.5" />
-                  Sign out
-                </button>
-              </div>
-
-              {apps.length === 0 ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Phone className="w-8 h-8 text-gray-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2">No subscriptions found</h3>
-                  <p className="text-gray-500 text-sm">
-                    We couldn&apos;t find any app subscriptions associated with this phone number.
-                  </p>
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  {apps.map((app) => (
-                    <div
-                      key={app.id}
-                      className={`border-2 rounded-xl p-4 transition-colors ${
-                        app.optedIn ? 'border-orange-200 bg-orange-50' : 'border-gray-200 bg-gray-50'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h3 className="font-semibold text-gray-900 truncate">{app.name}</h3>
-                            <span
-                              className={`flex-shrink-0 text-xs font-medium px-2 py-0.5 rounded-full ${
-                                app.optedIn
-                                  ? 'bg-green-100 text-green-700'
-                                  : 'bg-gray-200 text-gray-500'
-                              }`}
-                            >
-                              {app.optedIn ? 'Opted In' : 'Opted Out'}
-                            </span>
-                          </div>
-                          <p className="text-sm text-gray-500">{app.description}</p>
-                          <p className="text-xs text-gray-400 mt-1">Last activity: {app.lastActivity}</p>
-                        </div>
-                        <div className="flex-shrink-0">
-                          {app.optedIn ? (
-                            optOutConfirm === app.id ? (
-                              <div className="flex flex-col gap-2 items-end">
-                                <p className="text-xs text-red-600 font-medium text-right">Confirm opt-out?</p>
-                                <div className="flex gap-2">
-                                  <button
-                                    onClick={() => setOptOutConfirm(null)}
-                                    className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
-                                  >
-                                    Cancel
-                                  </button>
-                                  <button
-                                    onClick={() => handleOptOut(app.id)}
-                                    className="text-xs px-3 py-1.5 rounded-lg bg-red-500 text-white hover:bg-red-600 transition-colors"
-                                  >
-                                    Opt Out
-                                  </button>
-                                </div>
-                              </div>
-                            ) : (
-                              <button
-                                onClick={() => setOptOutConfirm(app.id)}
-                                className="text-xs px-3 py-2 rounded-lg border-2 border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300 transition-colors font-medium"
-                              >
-                                Opt Out
-                              </button>
-                            )
-                          ) : (
-                            <button
-                              onClick={() => handleOptIn(app.id)}
-                              className="text-xs px-3 py-2 rounded-lg border-2 border-green-200 text-green-700 hover:bg-green-50 hover:border-green-300 transition-colors font-medium"
-                            >
-                              Opt Back In
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              <div className="mt-6 pt-6 border-t border-gray-100">
-                <p className="text-xs text-gray-400 text-center">
-                  To opt out of all messages from a service, you can also reply <strong>STOP</strong> to any SMS you receive from them.
+          ) : (
+            <>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Create Your Consumer Account</h3>
+                <p className="text-gray-600">
+                  Fill out the form below to get started. We&apos;ll set up your privacy proxy and send you account details.
                 </p>
               </div>
-            </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name Field */}
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <User className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
+                      placeholder="Jane Smith"
+                    />
+                  </div>
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Mail className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
+                      placeholder="jane@example.com"
+                    />
+                  </div>
+                </div>
+
+                {/* Phone Field */}
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Phone Number *
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Phone className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FB923C] focus:border-transparent"
+                      placeholder="(555) 123-4567"
+                    />
+                  </div>
+                  <p className="mt-1 text-xs text-gray-500">
+                    This is the number we&apos;ll protect. Businesses will never see it.
+                  </p>
+                </div>
+
+                {/* Consent Checkboxes */}
+                <div className="space-y-4">
+                  {/* SMS Opt-in Checkbox */}
+                  <div className="bg-gray-50 border border-gray-300 rounded-lg p-6">
+                    <div className="flex items-start">
+                      <input
+                        type="checkbox"
+                        id="account-notifications"
+                        checked={accountNotifications}
+                        onChange={(e) => setAccountNotifications(e.target.checked)}
+                        className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
+                      />
+                      <label htmlFor="account-notifications" className="ml-3 text-sm leading-relaxed text-gray-700">
+                        By checking this box and submitting this form, you agree to receive transactional account notification text messages from Peachy Verify. These messages include account setup confirmations, opt-in/opt-out confirmations, and service updates. I understand I may opt out of SMS communication by replying &apos;STOP&apos;. Reply HELP or email support@peachyverify.com for help. Message and Data rates may apply. Message frequency varies. Carriers are not liable for delayed or undelivered messages. Opting in to SMS is optional and not required to submit this form or to use our services. All messages will be handled by Peachy Verify.
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Terms & Privacy Policy Checkbox */}
+                  <div className="bg-gray-50 border border-gray-300 rounded-lg p-6">
+                    <div className="flex items-start">
+                      <input
+                        type="checkbox"
+                        id="terms-consent"
+                        required
+                        checked={termsConsent}
+                        onChange={(e) => setTermsConsent(e.target.checked)}
+                        className="mt-1 h-4 w-4 text-[#FB923C] focus:ring-[#FB923C] border-gray-300 rounded flex-shrink-0"
+                      />
+                      <label htmlFor="terms-consent" className="ml-3 text-sm leading-relaxed text-gray-700">
+                        I agree with the{' '}
+                        <Link href="/terms" className="text-[#FB923C] hover:text-[#F97316] font-medium underline">
+                          Terms & Conditions
+                        </Link>{' '}
+                        and{' '}
+                        <Link href="/privacy" className="text-[#FB923C] hover:text-[#F97316] font-medium underline">
+                          Privacy Policy
+                        </Link>
+                        . I understand that Peachy Verify will act as a privacy proxy for my SMS communications.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full py-4 px-6 rounded-lg text-lg font-semibold transition-all ${
+                    isSubmitting
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-[#FB923C] hover:bg-[#F97316] text-white shadow-lg hover:shadow-xl'
+                  }`}
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Creating Your Account...
+                    </span>
+                  ) : (
+                    'Create My Privacy Account'
+                  )}
+                </button>
+
+                <p className="text-center text-sm text-gray-500">
+                  Free to join. No credit card required.
+                </p>
+              </form>
+            </>
           )}
         </div>
-
-        {/* Footer note */}
-        <p className="text-center text-xs text-gray-400 mt-6">
-          Secured by Peachy Verify &bull; Your data is never sold or shared
-        </p>
-      </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-[#3b3a41] text-white py-10 mt-12">
+      <footer className="bg-[#3b3a41] text-white py-12 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Peachy Verify</h3>
-              <p className="text-gray-400">SMS verification for businesses and consumers.</p>
+              <p className="text-gray-400">
+                SMS privacy and verification for businesses and consumers.
+              </p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Product</h4>
               <ul className="space-y-2">
-                <li><Link href="/about" className="text-gray-400 hover:text-white">About</Link></li>
-                <li><Link href="/signup" className="text-gray-400 hover:text-white">Get Started</Link></li>
+                <li>
+                  <Link href="/about" className="text-gray-400 hover:text-white">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/signup" className="text-gray-400 hover:text-white">
+                    For Businesses
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/consumer" className="text-gray-400 hover:text-white">
+                    Consumer Portal
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li><Link href="/privacy" className="text-gray-400 hover:text-white">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="text-gray-400 hover:text-white">Terms of Service</Link></li>
+                <li>
+                  <Link href="/privacy" className="text-gray-400 hover:text-white">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="text-gray-400 hover:text-white">
+                    Terms of Service
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400">support@peachyverify.com</p>
+              <p className="text-gray-400">
+                support@peachyverify.com
+              </p>
               <p className="text-gray-400 mt-2">
                 1309 Coffeen Avenue, Suite 1200<br />
                 Sheridan, WY 82801<br />
@@ -465,20 +495,5 @@ function ConsumerPageContent() {
         </div>
       </footer>
     </div>
-  );
-}
-
-export default function ConsumerPage() {
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FB923C] mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
-    }>
-      <ConsumerPageContent />
-    </Suspense>
   );
 }
