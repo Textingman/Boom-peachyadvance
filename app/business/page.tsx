@@ -1,8 +1,38 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Zap, Users, Shield, Target } from 'lucide-react';
+import { useState } from 'react';
+import { CheckCircle, Zap, Users, Shield, Target, Mail, Building, Phone, User } from 'lucide-react';
 
 export default function BusinessPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: ''
+  });
+  const [accountNotifications, setAccountNotifications] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // TODO: Integrate with Web3Forms later
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', company: '', phone: '', message: '' });
+      setAccountNotifications(false);
+    }, 1500);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FEE5D9] to-white">
       {/* Navigation */}
@@ -41,7 +71,7 @@ export default function BusinessPage() {
                 <Link href="/consumer" className="border border-[#FFA97E] text-[#FFA97E] hover:bg-[#FEE5D9] px-4 py-2 rounded-md text-sm font-medium">
                   For Consumers
                 </Link>
-                <Link href="/signup" className="bg-[#FFA97E] text-white hover:bg-[#FFC6AE] px-4 py-2 rounded-md text-sm font-medium">
+                <Link href="/business" className="bg-[#FFA97E] text-white hover:bg-[#FFC6AE] px-4 py-2 rounded-md text-sm font-medium">
                   For Businesses
                 </Link>
               </div>
@@ -61,12 +91,12 @@ export default function BusinessPage() {
             Cut through the noise. Verify identities instantly via SMS and keep your customer connections authentic and secure.
           </p>
           <div className="mt-10 flex justify-center gap-4">
-            <Link
-              href="/signup"
+            <a
+              href="#signup"
               className="px-8 py-4 bg-[#FFA97E] text-white text-lg font-semibold rounded-lg hover:bg-[#FFC6AE] transition-colors shadow-lg"
             >
               Get Started Free
-            </Link>
+            </a>
             <Link
               href="/about"
               className="px-8 py-4 bg-white text-[#FFA97E] text-lg font-semibold rounded-lg hover:bg-[#FEE5D9] transition-colors border-2 border-[#FFA97E]"
@@ -205,20 +235,219 @@ export default function BusinessPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-[#FFA97E] rounded-2xl shadow-2xl overflow-hidden">
-          <div className="px-6 py-16 sm:px-12 sm:py-20 text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join businesses that trust Peachy Verify for SMS verification and improved customer engagement.
+      {/* ── SIGNUP FORM ── */}
+      <section id="signup" className="bg-white py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold text-[#4A4A4A] mb-4">Get Started with Peachy Verify</h2>
+            <p className="text-xl text-[#757575]">
+              Fill out the form below and we&apos;ll get back to you within 24 hours to set up your account.
             </p>
-            <Link
-              href="/signup"
-              className="inline-block px-8 py-4 bg-white text-[#FFA97E] text-lg font-semibold rounded-lg hover:bg-[#FEE5D9] transition-colors shadow-lg"
-            >
-              Get Started Today
-            </Link>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
+            {submitStatus === 'success' ? (
+              <div className="text-center py-12">
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
+                <p className="text-lg text-gray-600 mb-8">
+                  We&apos;ve received your request. Our team will contact you within 24 hours to get you started.
+                </p>
+                <Link
+                  href="/"
+                  className="inline-block px-6 py-3 bg-[#FFA97E] text-white font-semibold rounded-lg hover:bg-[#FFC6AE] transition-colors"
+                >
+                  Return to Home
+                </Link>
+              </div>
+            ) : (
+              <>
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Sign Up for Peachy Verify</h3>
+                  <p className="text-gray-600">
+                    Complete the form below to start verifying your customers with confidence.
+                  </p>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name Field */}
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Full Name *
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <User className="h-5 w-5 text-gray-400" />
+                      </div>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FFA97E] focus:border-transparent"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email Field */}
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Business Email *
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <Mail className="h-5 w-5 text-gray-400" />
+                      </div>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FFA97E] focus:border-transparent"
+                        placeholder="john@company.com"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Company Field */}
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                      Company Name *
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <Building className="h-5 w-5 text-gray-400" />
+                      </div>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        required
+                        value={formData.company}
+                        onChange={handleChange}
+                        className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FFA97E] focus:border-transparent"
+                        placeholder="Acme Inc."
+                      />
+                    </div>
+                  </div>
+
+                  {/* Phone Field */}
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number (Optional)
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <Phone className="h-5 w-5 text-gray-400" />
+                      </div>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FFA97E] focus:border-transparent"
+                        placeholder="(555) 123-4567"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Message Field */}
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Tell us about your use case (Optional)
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FFA97E] focus:border-transparent"
+                      placeholder="How do you plan to use Peachy Verify?"
+                    />
+                  </div>
+
+                  {/* Consent Checkboxes */}
+                  <div className="space-y-4">
+                    {/* SMS Opt-in Checkbox */}
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-6">
+                      <div className="flex items-start">
+                        <input
+                          type="checkbox"
+                          id="account-notifications"
+                          checked={accountNotifications}
+                          onChange={(e) => setAccountNotifications(e.target.checked)}
+                          className="mt-1 h-4 w-4 text-[#FFA97E] focus:ring-[#FFA97E] border-gray-300 rounded flex-shrink-0"
+                        />
+                        <label htmlFor="account-notifications" className="ml-3 text-sm leading-relaxed text-gray-700">
+                          By checking this box and submitting this form, you agree to receive account notification text messages from Peachy Verify. I understand I may opt out of SMS communication by replying &apos;STOP&apos;. Reply HELP or email support@peachyverify.com for help. Message and Data rates may apply. Message frequency varies. Carriers are not liable for delayed or undelivered messages. Opting in to SMS is optional and not required to submit this form or to use our services. All messages will be handled by Peachy Verify.
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Terms & Privacy Policy Checkbox */}
+                    <div className="bg-gray-50 border border-gray-300 rounded-lg p-6">
+                      <div className="flex items-start">
+                        <input
+                          type="checkbox"
+                          id="terms-consent"
+                          required
+                          className="mt-1 h-4 w-4 text-[#FFA97E] focus:ring-[#FFA97E] border-gray-300 rounded flex-shrink-0"
+                        />
+                        <label htmlFor="terms-consent" className="ml-3 text-sm leading-relaxed text-gray-700">
+                          I agree with the{' '}
+                          <Link href="/terms" className="text-[#FFA97E] hover:text-[#FFC6AE] font-medium underline">
+                            Terms & Conditions
+                          </Link>{' '}
+                          and{' '}
+                          <Link href="/privacy" className="text-[#FFA97E] hover:text-[#FFC6AE] font-medium underline">
+                            Privacy Policy
+                          </Link>
+                          .
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full py-4 px-6 rounded-lg text-lg font-semibold transition-all ${
+                      isSubmitting
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-[#FFA97E] hover:bg-[#FFC6AE] text-white shadow-lg hover:shadow-xl'
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center">
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Submitting...
+                      </span>
+                    ) : (
+                      'Get Started'
+                    )}
+                  </button>
+
+                  <p className="text-center text-sm text-gray-500">
+                    Note: Web3Forms integration will be added in a future update.
+                  </p>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -235,7 +464,8 @@ export default function BusinessPage() {
               <h4 className="font-semibold mb-4">Product</h4>
               <ul className="space-y-2">
                 <li><Link href="/about" className="text-gray-400 hover:text-white">About</Link></li>
-                <li><Link href="/signup" className="text-gray-400 hover:text-white">Get Started</Link></li>
+                <li><Link href="/business" className="text-gray-400 hover:text-white">For Businesses</Link></li>
+                <li><Link href="/consumer" className="text-gray-400 hover:text-white">For Consumers</Link></li>
               </ul>
             </div>
             <div>
