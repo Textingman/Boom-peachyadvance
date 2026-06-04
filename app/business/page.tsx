@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { CheckCircle, Zap, Users, Shield, Target, Mail, Building, Phone, User } from 'lucide-react';
+import SiteFooter from '../components/SiteFooter';
 
 export default function BusinessPage() {
   const [formData, setFormData] = useState({
@@ -449,48 +450,7 @@ export default function BusinessPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#3b3a41] text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Peachy Verify</h3>
-              <p className="text-gray-400">SMS verification for businesses.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li><Link href="/about" className="text-gray-400 hover:text-white">About</Link></li>
-                <li><Link href="/business" className="text-gray-400 hover:text-white">For Businesses</Link></li>
-                <li><Link href="/consumer" className="text-gray-400 hover:text-white">For Consumers</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li><Link href="/privacy" className="text-gray-400 hover:text-white">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="text-gray-400 hover:text-white">Terms of Service</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400">support@peachyverify.com</p>
-              <p className="text-gray-400 mt-2">
-                1309 Coffeen Avenue, Suite 1200<br />
-                Sheridan, WY 82801<br />
-                USA
-              </p>
-              <p className="text-gray-400 mt-2">
-                <a href="tel:+18886895163" className="hover:text-white">1-888-689-5163</a>
-              </p>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Peachy Verify. All rights reserved.</p>
-            <p className="mt-2 text-sm">Peachy Verify is a DBA of Bume International LLC</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
