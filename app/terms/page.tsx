@@ -62,20 +62,35 @@ export default function TermsPage() {
           
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Acceptance of Terms</h2>
           <p className="text-gray-600 mb-6">
-            By accessing or using Peachy Verify's SMS verification service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service. These Terms apply to all users of the Service, including businesses, developers, and end users.
+            By accessing or using any product or service offered by Peachy Verify, a DBA of Bume International LLC ("Peachy Verify," "we," "our," or "us"), you agree to be bound by these Terms of Service ("Terms"). This includes, but is not limited to, our identity verification platform, consumer privacy proxy, SMS compliance infrastructure, business sign-up portal, and consumer account portal (collectively, the "Services"). If you do not agree to these Terms, you may not access or use the Services. These Terms apply to all users of the Services, including businesses, developers, consumers, and end users.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Description of Service</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Description of Services</h2>
           <p className="text-gray-600 mb-6">
-            Peachy Verify provides a carrier-compliant SMS verification platform that allows businesses to verify customer phone numbers through a secure, pass-through verification page. The Service includes:
+            Peachy Verify builds and operates infrastructure at the intersection of identity, privacy, and SMS compliance. Our platform serves two primary audiences — businesses and consumers — and includes the following services:
           </p>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">2.1 Business Services</h3>
           <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-            <li>SMS verification landing pages</li>
-            <li>Phone number verification flow</li>
-            <li>Parameter preservation and redirect functionality</li>
+            <li>Carrier-compliant SMS phone verification for customer identity confirmation</li>
+            <li>10DLC-registered campaign infrastructure and opt-in management</li>
+            <li>White-label verification pages with custom branding and redirect support</li>
+            <li>Consent tracking, STOP/HELP handling, and TCPA compliance tools</li>
+            <li>Parameter preservation and seamless redirect functionality</li>
             <li>Multi-brand support with customizable styling</li>
-            <li>Carrier-compliant infrastructure</li>
           </ul>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">2.2 Consumer Services</h3>
+          <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
+            <li>Privacy proxy service that shields consumers&apos; real phone numbers from businesses</li>
+            <li>Centralized SMS opt-in and opt-out management dashboard</li>
+            <li>Account notification and service update messaging</li>
+            <li>One-click opt-out from any subscribed service</li>
+          </ul>
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">2.3 SMS Messaging Services</h3>
+          <p className="text-gray-600 mb-6">
+            All SMS communications sent through or managed by Peachy Verify are subject to our{' '}
+            <a href="/sms-terms" className="text-[#FB923C] hover:text-[#F97316] font-medium">SMS Terms &amp; Conditions</a>,
+            which are incorporated into these Terms by reference.
+          </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Account Registration and Security</h2>
           
