@@ -36,7 +36,7 @@ export default function SiteFooter() {
               USA
             </p>
             <p className="text-gray-400 mt-2">
-              <a href="tel:+18886895163" className="hover:text-white">1-888-689-5163</a>
+              <a href="tel:+12792774433" className="hover:text-white">+1 (279) 277-4433</a>
             </p>
           </div>
         </div>
